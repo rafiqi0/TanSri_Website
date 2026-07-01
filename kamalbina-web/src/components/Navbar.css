@@ -29,9 +29,21 @@
 
 .navbar__logo {
   display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+.navbar__logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.navbar__logo-text {
+  display: flex;
   flex-direction: column;
   gap: 0;
-  cursor: pointer;
 }
 
 .navbar__logo-name {
