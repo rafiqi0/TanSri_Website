@@ -29,7 +29,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="navbar">
       <div className="navbar__inner">
         <div className="navbar__logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src="/favicon.svg" alt="KamalBina Logo" className="navbar__logo-img" />
+          <img src="/images/logo.png" alt="KamalBina Logo" className="navbar__logo-img" />
           <div className="navbar__logo-text">
             <span className="navbar__logo-name">KAMALBINA</span>
             <span className="navbar__logo-sub">Sdn. Bhd.</span>
