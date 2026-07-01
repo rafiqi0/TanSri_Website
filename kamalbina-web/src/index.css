@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ── Design Tokens ───────────────────────────── */
+:root {
+  /* Brand Colors */
+  --navy-900: #0a1628;
+  --navy-800: #111d35;
+  --navy-700: #1a2a4a;
+  --navy-600: #243760;
+  --navy-500: #2e4476;
+
+  --gold-500: #c9a84c;
+  --gold-400: #d4b86a;
+  --gold-300: #e0c888;
+  --gold-200: #ebd9a6;
+
+  --warm-50: #faf8f5;
+  --warm-100: #f5f0e8;
+  --warm-200: #ebe3d5;
+
+  --grey-50: #f9fafb;
+  --grey-100: #f3f4f6;
+  --grey-200: #e5e7eb;
+  --grey-300: #d1d5db;
+  --grey-400: #9ca3af;
+  --grey-500: #6b7280;
+  --grey-600: #4b5563;
+  --grey-700: #374151;
+  --grey-800: #1f2937;
+  --grey-900: #111827;
+
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Semantic */
+  --text-primary: var(--navy-900);
+  --text-secondary: var(--grey-600);
+  --text-muted: var(--grey-400);
+  --text-on-dark: var(--warm-50);
+  --bg-primary: var(--white);
+  --bg-alt: var(--warm-50);
+  --bg-dark: var(--navy-900);
+  --accent: var(--gold-500);
+  --accent-hover: var(--gold-400);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+  --fs-4xl: 3rem;
+  --fs-5xl: 3.5rem;
+  --fs-6xl: 4.5rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 72px;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Reset ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ── Typography ──────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--fs-5xl); }
+h2 { font-size: var(--fs-3xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ── Layout Utilities ────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section--dark {
+  background-color: var(--bg-dark);
+  color: var(--text-on-dark);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--text-on-dark);
+}
+
+.section--dark p {
+  color: var(--grey-300);
+}
+
+.section--alt {
+  background-color: var(--bg-alt);
+}
+
+/* ── Section Header ──────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-4);
+}
+
+.section-title {
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.section--dark .section-subtitle {
+  color: var(--grey-300);
+}
+
+/* ── Buttons ─────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background-color: var(--accent);
+  color: var(--navy-900);
+}
+
+.btn--primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--outline {
+  border: 1.5px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn--outline-dark {
+  border: 1.5px solid var(--navy-900);
+  color: var(--navy-900);
+  background: transparent;
+}
+
+.btn--outline-dark:hover {
+  background: var(--navy-900);
+  color: var(--white);
+}
+
+/* ── Divider ─────────────────────────────────── */
+.gold-line {
+  width: 48px;
+  height: 3px;
+  background-color: var(--accent);
+  border: none;
+  margin-top: var(--space-4);
+}
+
+.gold-line--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Fade-in animation ───────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 1024px) {
+  h1 { font-size: var(--fs-4xl); }
+  h2 { font-size: var(--fs-2xl); }
+  .section { padding: var(--space-16) 0; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: var(--fs-3xl); }
+  h2 { font-size: var(--fs-2xl); }
+  .container { padding: 0 var(--space-4); }
+  .section { padding: var(--space-12) 0; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+}
